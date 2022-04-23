@@ -1,0 +1,58 @@
+body {
+    font-family: "Open sans", georgia, serif;  
+    font-size: 16px;
+}
+
+$black-primary: #000;
+$black-secondary: #212121;
+
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+a {
+    color: $black-secondary;
+    text-decoration: none;
+
+    &.underline {
+        text-decoration: underline;
+    }
+
+    &.bold {
+        font-weight: bold;    
+    }
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 24px;
+   
+    a {
+        padding: 16px;
+    }
+}
+
+// Home - Section Personal
+#section-personal {
+    position: relative;
+    padding-top: 160px;
+    padding-bottom: 130px;
+}
+
+.home-rect {
+    position: absolute;
+    z-index: -1;
+
+    &1 {
+        top: 0;   
+    }
+
+    &2 {
+        top: 250px;
+        left: 56%;
+    }
+}
