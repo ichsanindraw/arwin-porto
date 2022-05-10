@@ -1,41 +1,51 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { Link } from "gatsby"
+// import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
+import Personal from "./home/personal"
+import Blog from "./home/blog"
+import Work from "./home/work"
+import Footer from "../components/footer"
 
-export default function Home({ data }) {
+const Home = ({ data }) => {
+  console.log(data);
+
   return (
     <Layout>
-      <SEO title="home" />
+      <Seo title="home" />
+      <Personal />
+      <Blog />
+      <Work />
+      <Footer />
       <h1>My WordPress Blog</h1>
       <h4>Posts</h4>
-      {data.allWpPost.nodes.map((node) => (
+      {/* {data.allWpPost.nodes.map((node) => (
         <div key={node.slug}>
-          {/* highlight-start */}
           <Link to={node.slug}>
             <p>{node.title}</p>
           </Link>
-          {/* highlight-end */}
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
         </div>
-      ))}
+      ))} */}
     </Layout>
   )
 }
 
-export const pageQuery = graphql`
-  query {
-    allWpPost(sort: { fields: [date] }) {
-      nodes {
-        title
-        excerpt
-        slug
-      }
-    }
-  }
-`
+export default Home
+
+// export const pageQuery = graphql`
+//   query {
+//     allWpPost(sort: { fields: [date] }) {
+//       nodes {
+//         title
+//         excerpt
+//         slug
+//       }
+//     }
+//   }
+// `
 
 // const IndexPage = () => (
 //   <Layout>

@@ -1,0 +1,170 @@
+body {
+    font-family: "Open sans", georgia, serif;  
+    font-size: 16px;
+}
+
+$black-primary: #000;
+$black-secondary: #212121;
+
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+a {
+    color: $black-secondary;
+    text-decoration: none;
+
+    &.underline {
+        text-decoration: underline;
+    }
+
+    &.bold {
+        font-weight: bold;    
+    }
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+
+    .main-navigation {
+        display: flex;
+        justify-content: flex-end;
+        flex-grow: 1;
+    }
+   
+    a {
+        padding: 16px;
+    }
+}
+
+// Home - Section Personal
+#section-personal {
+    padding-top: 160px;
+    padding-bottom: 130px;
+
+    .home-rect {
+        z-index: -1;
+    }
+}
+
+.home-rect {
+    position: absolute;
+
+    &1 {
+        top: 0;   
+    }
+
+    &2 {
+        top: 250px;
+        left: 56%;
+    }
+
+    &3 {
+
+    }
+
+    &4 {
+        left: 35%;
+        bottom: 0;
+    }
+
+    &5 {
+        top: 35px;
+        right: 0;
+    }
+}
+
+#section-blog {
+    position: relative;
+    background: #212121;
+    color: #fff;
+}
+
+.section-blog {
+    &__container {
+        padding: 82px 0;
+        display: flex;
+        justify-content: space-between;
+
+        div {
+            &:first-child {
+                flex-basis: 35%;
+            }
+        }
+    }
+}
+
+#section-work {
+    padding: 62px 0;
+}
+
+.selected-work {
+    display: flex;
+    background-color: #F5F7FA;
+    margin-top: 88px;
+
+    // :hover {
+    //     box-shadow: 0 4px 24px 0 rgb(174 182 189 / 24%);
+    //     transform: scale(1.02);
+    // }
+
+    &__text {
+        padding: 56px;
+        flex-basis: 50%;
+    }
+
+    .blog-category {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    &__thumbnail {
+        flex-basis: 50%;
+    }
+}
+
+.about-me {
+    display: flex;
+
+    &__photo {
+        border-radius: 12px;
+        box-shadow: 0 4px 24px 0 rgb(0 0 0 / 16%);
+        margin-right: 40px;
+    }
+}
+
+// components
+
+.socmed {
+    a {
+        margin-left: 8px;
+        transition: color ease-in 0.3s;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    &__email {
+        &:hover {
+            color: #000;
+        }
+    }
+
+    &__linkedin {
+        &:hover {
+            color: #0e76a8;
+        }
+    }
+
+    &__dribble {
+        &:hover {
+            color: #ea4c89;
+        }
+    }
+}
