@@ -13,7 +13,7 @@ const BlogThumbnail = ({ image, title, text, date, url }) => {
                 alt="about photo"
             />
             <h3 className="thumbnail__title typography-3">{title}</h3>
-            <div className="thumbnail__text">{text}</div>
+            <div className="thumbnail__text" dangerouslySetInnerHTML={{__html: text}} />
             <div className="thumbnail__date">{date}</div>
             <Link to={url} className="thumbnail__link">Read Article</Link>
         </div>

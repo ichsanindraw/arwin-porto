@@ -1,5 +1,7 @@
+@import "../styles/typography.scss";
+
 html, body {
-    font-family: "Open sans", georgia, serif;  
+    font-family: "Open Sauce One", georgia, serif;  
     font-size: 16px;
 }
 
@@ -10,6 +12,11 @@ $black-secondary: #212121;
 $text-color: #9c9c9c;
 $link-color: #5e5e63;
 
+$font-regular: "Open Sauce One";
+$font-light: "Open Sauce One - Light";
+$font-bold: "Open Sauce One - Bold";
+$font-extraBold: "Open Sauce One - Extra Bold";
+
 .container {
     max-width: 960px;
     margin: 0 auto;
@@ -17,14 +24,33 @@ $link-color: #5e5e63;
 
 .btn {
     display: inline-block;
+    text-align: center;
+    font-family: $font-extraBold;
+
+    &--transparent-white {
+        color: white;
+        border: 1px solid white;
+    }
+
+    &--transparent-black {
+        color: $black-primary;
+        border: 1px solid $black-primary;
+    }
+
+    &--medium {
+        padding: 14px 16px;
+        border-radius: 8px;
+        font-size: 16px;
+        line-height: 20px;
+        min-width: 202px;
+    }
 
     &--large {
         padding: 24px;
-        border-color: $black-primary;
+        border: 1px solid $black-primary;
         border-radius: 12px;
         background-color: $black-primary;
         font-size: 18px;
-        font-weight: 500;
         color: white;
     }
 }
@@ -47,33 +73,78 @@ nav {
     align-items: center;
     justify-content: space-between;
     margin-top: 24px;
+    margin-bottom: 32px;
 
     .main-navigation {
         display: flex;
         justify-content: flex-end;
         flex-grow: 1;
+       
     }
    
     a {
+        font-size: 18px;
+        line-height: 22px;
         padding: 16px;
     }
 }
 
-.typography {
-    font-weight: bold;
-    
-    &-3 {
-        font-size: 20px;
+footer {
+    margin-bottom: 100px;
+
+    .footer-title {
+        font-family: $font-bold;
+        font-size: 26px;
+        line-height: 32px;
+        margin-bottom: 32px;
+    }
+
+    .socmed {
+        a {
+            margin-left: 64px;
+        }
+    }
+
+    .copyright {
+        color: $black-secondary;
+        font-size: 14px;
+        line-height: 22px;
+        margin-top: 36px;
     }
 }
-
 // Home - Section Personal
 #section-personal {
     padding-top: 160px;
-    padding-bottom: 130px;
+    padding-bottom: 100px;
 
     .home-rect {
         z-index: -1;
+    }
+
+    .personal {
+        &__title {
+            margin: 30px 0;
+            font-size: 32px;
+            line-height: 48px;
+            font-family: $font-extraBold;
+
+            a {
+                color: #00aa5a;
+            }
+        }
+
+        &__text {
+            font-size: 20px;
+            line-height: 28px;
+            font-family: $font-light;
+            color: $black-secondary;
+            margin-bottom: 85px;
+
+            a {
+                font-family: $font-bold;
+                text-decoration: underline;
+            }
+        }
     }
 }
 
@@ -104,28 +175,82 @@ nav {
     }
 }
 
+// Home - Section Blog
 #section-blog {
     position: relative;
     background: #212121;
     color: #fff;
-}
 
-.section-blog {
-    &__container {
-        padding: 82px 0;
-        display: flex;
-        justify-content: space-between;
+    .section-blog {
+        &__container {
+            padding: 82px 0;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+    
+            div {
+                &:first-child {
+                    flex-basis: 35%;
+                    padding-right: 140px;
+                }
+            }
+        }
 
-        div {
-            &:first-child {
-                flex-basis: 35%;
+        &__title {
+            font-size: 48px;
+            line-height: 56px;
+            font-family: $font-extraBold;
+            margin-bottom: 32px;
+        }
+
+        &__text {
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        &__blog {
+            &-title {
+                color: white;
+                font-size: 21px;
+                line-height: 32px;
+                text-decoration: underline;
+                font-family: $font-extraBold;
+                margin-bottom: 8px;
+            }
+
+            &-date {
+                font-size: 16px;
+                line-height: 20px;
+                margin-top: 8px;
+                margin-bottom: 40px;
             }
         }
     }
 }
 
+// Home - Section Work
 #section-work {
     padding: 62px 0;
+
+
+    .section-work {
+        &__title {
+            font-family: $font-extraBold;
+            font-size: 48px;
+            line-height: 56px;
+            color: $black-color;
+            margin-bottom: 32px;
+        }
+    
+        &__text {
+            font-size: 16px;
+            line-height: 24px;
+            color: $black-secondary;
+            margin-bottom: 88px;
+        }
+    }
+    
 }
 
 .selected-work {
@@ -143,14 +268,30 @@ nav {
         flex-basis: 50%;
     }
 
-    .blog-category {
-        font-size: 16px;
-        line-height: 24px;
-    }
-
     &__thumbnail {
         flex-basis: 50%;
     }
+
+    &__title {
+        font-family: $font-extraBold;
+        font-size: 24px;
+        line-height: 32px;
+        color: $black-secondary;
+        margin-bottom: 0;
+    }
+
+    &__category {
+        margin: 16px 0;
+        display: inline-block;
+    }
+
+    &__category,
+    &__desc {
+        font-size: 16px;
+        line-height: 24px;
+        color: $black-secondary;
+    }
+    
 }
 
 .about-me {
@@ -201,6 +342,7 @@ nav {
     .title-section {
         margin-bottom: 24px;
         font-size: 32px;
+        font-family: $font-bold;
     }
 
     &__container {
@@ -225,6 +367,7 @@ nav {
             margin-top: 12px;
             margin-bottom: 10px;
             line-height: 24px;
+            font-family: $font-extraBold;
         }
 
         &__text {

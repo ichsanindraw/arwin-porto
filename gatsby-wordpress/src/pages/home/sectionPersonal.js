@@ -30,9 +30,9 @@ const SectionPersonal = () => {
             alt="Arwin's_Picture"
           />
 
-          <h2>Hi, I’m Arwin. I’m currently a Product Designer at <Link to="https://www.tokopedia.com">Tokopedia</Link> (Indonesia’s largest e-commerce). Helping Tokopedia’s mission to democratize commerce through technology.</h2>
-          <p>Believes in technology’s potential for good & make beautiful things that works.<br/><br/>
-          Previously, I worked at <Link to="https://www.bridestory.com/" underline bold>Bridestory</Link> and <Link to="https://aleph-labs.com/" underline bold>Aleph-Labs.</Link></p>
+          <h1 className="personal__title">Hi, I’m Arwin. I’m currently a Product Designer at <Link to="https://www.tokopedia.com">Tokopedia</Link> (Indonesia’s largest e-commerce). Helping Tokopedia’s mission to democratize commerce through technology.</h1>
+          <p className="personal__text">Believes in technology’s potential for good & make beautiful things that works.<br/><br/>
+          Previously, I worked at <Link to="https://www.bridestory.com/" target="__blank">Bridestory</Link> and <Link to="https://aleph-labs.com/" target="__blank">Aleph-Labs.</Link></p>
 
           <StaticImage
             src="../../images/arrow-down.png"

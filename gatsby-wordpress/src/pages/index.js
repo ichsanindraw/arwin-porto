@@ -1,6 +1,5 @@
 import * as React from "react"
-import { Link } from "gatsby"
-// import { graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -9,43 +8,31 @@ import SectionBlogs from "./home/sectionBlogs"
 import SectionWorks from "./home/sectionWorks"
 import Footer from "../components/footer"
 
-const Home = ({ data }) => {
-  console.log(data);
-
+const Home = ({ blogs }) => {
   return (
     <Layout>
       <Seo title="home" />
       <SectionPersonal />
-      <SectionBlogs />
+      <SectionBlogs data={blogs}/>
       <SectionWorks />
       <Footer />
-      <h1>My WordPress Blog</h1>
-      <h4>Posts</h4>
-      {/* {data.allWpPost.nodes.map((node) => (
-        <div key={node.slug}>
-          <Link to={node.slug}>
-            <p>{node.title}</p>
-          </Link>
-          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-        </div>
-      ))} */}
     </Layout>
   )
 }
 
 export default Home
 
-// export const pageQuery = graphql`
-//   query {
-//     allWpPost(sort: { fields: [date] }) {
-//       nodes {
-//         title
-//         excerpt
-//         slug
-//       }
-//     }
-//   }
-// `
+export const pageQuery = graphql`
+  query {
+    allWpPost(sort: { fields: [date] }) {
+      nodes {
+        title
+        date
+        slug
+      }
+    }
+  }
+`
 
 // const IndexPage = () => (
 //   <Layout>

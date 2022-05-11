@@ -6,8 +6,8 @@ const SectionWorks = () => {
     return (
         <section id="section-work">
             <Container>
-                <h1>Selected Works</h1>
-                <p>Here are some of the projects I've worked on in the past, need an access? please hit me up on arwinwangsa@gmail.com</p>
+                <h2 className="section-work__title">Selected Works</h2>
+                <p className="section-work__text">Here are some of the projects I've worked on in the past, need an access? please hit me up on arwinwangsa@gmail.com</p>
                 <SelectedWorks
                     title="Frictionless Shipping Address"
                     category="E-Commerce • Mobile App & Web • Launched"

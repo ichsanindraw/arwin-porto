@@ -1,13 +1,10 @@
 import * as React from "react"
-import { Link, StaticQuery, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
 
 import Container from  "../../components/layout/container"
 
-const SectionBlogs = ({ data }) => {
-    console.log(data);
-    console.log(JSON.stringify(data, null, 4));
-
+const SectionBlogs = ({ blogs }) => {
     return (
         <section id="section-blog">
             <StaticImage
@@ -37,33 +34,21 @@ const SectionBlogs = ({ data }) => {
             <Container>
                 <div className="section-blog__container">
                     <div>
-                        <h1>Personal Thoughts</h1>
-                        <p>My random thoughts, write about what I've been working on, problems I've solved, and things I'm still trying to figure out.</p>
+                        <h2 className="section-blog__title">Personal Thoughts</h2>
+                        <p className="section-blog__text">My random thoughts, write about what I've been working on, problems I've solved, and things I'm still trying to figure out.</p>
+                        <Link to="/blog" className="btn btn--medium btn--transparent-white">Visit Blog</Link>
                     </div>
                     <div>
-                        {/* {data.allWpPost.nodes.map((node) => {
-                            <div key={node.slug}>
-                                <h4>{node.title}</h4>
-                                <p>31 March 2022</p>
-                            </div>
-                        })} */}
-                       
-                        <div>
-                            <h4>Is your daily job really affect your daily life?</h4>
-                            <p>31 March 2022</p>
-                        </div>
-                        <div>
-                            <h4>Is your daily job really affect your daily life?</h4>
-                            <p>31 March 2022</p>
-                        </div>
-                        <div>
-                            <h4>Is your daily job really affect your daily life?</h4>
-                            <p>31 March 2022</p>
-                        </div>
-                        <div>
-                            <h4>Is your daily job really affect your daily life?</h4>
-                            <p>31 March 2022</p>
-                        </div>
+                        {blogs.allWpPost.nodes.map((node) => {
+                            const newDate = new Date(node.date);
+                            const formatedDate = `${newDate.getDay()} ${newDate.toLocaleString('default', { month: 'long' })} ${newDate.getFullYear()}`
+                            return (
+                                <div key={node.slug}>
+                                    <Link to={node.slug} className="section-blog__blog-title">{node.title}</Link>
+                                    <p className="section-blog__blog-date">{formatedDate}</p>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </Container>
@@ -72,13 +57,3 @@ const SectionBlogs = ({ data }) => {
 }
 
 export default SectionBlogs
-
-export const query = graphql`
-  {
-    allWpPost(sort: {fields: [date]}) {
-      nodes {
-        title
-      }
-    }
-  }
-`

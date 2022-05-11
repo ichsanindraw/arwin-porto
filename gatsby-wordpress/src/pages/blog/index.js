@@ -1,4 +1,5 @@
 import * as React from "react"
+import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Link from "../../components/link"
 
@@ -7,11 +8,21 @@ import Navigation from "../../components/navigation"
 import Container from "../../components/layout/container"
 import BlogThumbnail from "./blogThumbnail"
 
-const Blog = () => {
+const Blog = ({ data }) => {
+    console.log(data.allWpPost.nodes);
+    const dataLength = data.allWpPost.nodes.length
+    const newestData = data.allWpPost.nodes[dataLength - 1]
+    const newestNewDate = new Date(newestData.date);
+    const newestFormatedDate = `${newestNewDate.toLocaleString('default', { month: 'long' })}, ${newestNewDate.getDay()} ${newestNewDate.getFullYear()}`
+
     return (
         <Container>
             <Seo title="Blog"/>
             <Navigation isBackButton />
+            {data.allWpPost.nodes.map((node) => {
+                console.log(node);
+            })}
+            {/* {data.allWpPost.nodes} */}
             <div className="blog-thumbnail newest-blog">
                 <StaticImage
                     className="thumbnail__image"
@@ -21,38 +32,30 @@ const Blog = () => {
                     alt="about photo"
                 />
                 <label>New Article</label>
-                <h1 className="thumbnail__title">Why designing a portfolio is important for designers?</h1>
-                <div className="thumbnail__text">Don't underestimate the power of designing your own portfolio. Your portfolio shows who you are</div>
-                <div className="thumbnail__date">February 4, 2022</div>
-                <Link to="/" className="thumbnail__link">Read Article</Link>
+                <h1 className="thumbnail__title">{newestData.title}</h1>
+                <div className="thumbnail__text" dangerouslySetInnerHTML={{__html: newestData.excerpt}} />
+                <div className="thumbnail__date">{newestFormatedDate}</div>
+                <Link to={newestData.slug} className="thumbnail__link">Read Article</Link>
             </div>
             <div className="all-articles">
                 <h2 className="title-section">All Articles</h2>
 
                 <div className="all-articles__container">
-                    <BlogThumbnail
-                        image="../../../images/ex-blog1.png"
-                        title="6 questions I have or wished I'd asked of my future coworkers & leader"
-                        text="Take this opportunity to find out your next job under the company"
-                        date="January 30, 2022"
-                        url="/"
-                    />
+                    {data.allWpPost.nodes.map((node) => {
+                        const newDate = new Date(node.date);
+                        const formatedDate = `${newDate.toLocaleString('default', { month: 'long' })}, ${newDate.getDay()} ${newDate.getFullYear()}`
 
-                    <BlogThumbnail
-                        image="../../images/ex-blog1.png"
-                        title="Align your direction by using a principle"
-                        text="Make everyone go in the same direction and achieve your team goal together"
-                        date="January 20, 2022"
-                        url="/"
-                    />
-
-                    <BlogThumbnail
-                        image="../../images/ex-blog1.png"
-                        title="Fear is always only in our mind"
-                        text="My way to avoid overthinking before doing a presentation"
-                        date="January 13, 2022"
-                        url="/"
-                    />
+                        return (
+                            <BlogThumbnail
+                                key={node.slug}
+                                image="../../../images/ex-blog1.png"
+                                title={node.title}
+                                text={node.excerpt}
+                                date={formatedDate}
+                                url={node.slug}
+                            />
+                        )
+                    })}
                 </div>
 
                 <div className="all-articles__link">
@@ -64,3 +67,16 @@ const Blog = () => {
 }
 
 export default Blog
+
+export const pageQuery = graphql`
+  query {
+    allWpPost(sort: { fields: [date] }) {
+      nodes {
+        title
+        excerpt
+        date
+        slug
+      }
+    }
+  }
+`
