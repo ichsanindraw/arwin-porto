@@ -1,8 +1,8 @@
 import * as React from "react"
-import Container from  "../../../components/layout/container"
-import SelectedWorks from "./selectedWork"
+import Container from "../../components/layout/container"
+import SelectedWorks from "./work/selectedWork"
 
-const Work = () => {
+const SectionWorks = () => {
     return (
         <section id="section-work">
             <Container>
@@ -20,4 +20,4 @@ const Work = () => {
     )
 }
 
-export default Work
+export default SectionWorks

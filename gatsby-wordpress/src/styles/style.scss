@@ -1,15 +1,32 @@
-body {
+html, body {
     font-family: "Open sans", georgia, serif;  
     font-size: 16px;
 }
 
-$black-primary: #000;
+$black-color: #000;
+$white-color: #fff;
+$black-primary: #333;
 $black-secondary: #212121;
-
+$text-color: #9c9c9c;
+$link-color: #5e5e63;
 
 .container {
     max-width: 960px;
     margin: 0 auto;
+}
+
+.btn {
+    display: inline-block;
+
+    &--large {
+        padding: 24px;
+        border-color: $black-primary;
+        border-radius: 12px;
+        background-color: $black-primary;
+        font-size: 18px;
+        font-weight: 500;
+        color: white;
+    }
 }
 
 a {
@@ -39,6 +56,14 @@ nav {
    
     a {
         padding: 16px;
+    }
+}
+
+.typography {
+    font-weight: bold;
+    
+    &-3 {
+        font-size: 20px;
     }
 }
 
@@ -165,6 +190,98 @@ nav {
     &__dribble {
         &:hover {
             color: #ea4c89;
+        }
+    }
+}
+
+.all-articles {
+    margin-top: 56px;
+    margin-bottom: 40px;
+
+    .title-section {
+        margin-bottom: 24px;
+        font-size: 32px;
+    }
+
+    &__container {
+        display: flex;
+        margin: 0 -15px 40px;
+    }
+
+    &__link {
+       text-align: center; 
+    }
+}
+
+.blog-thumbnail {
+    padding: 0 15px;
+
+    .thumbnail {
+        &__image {
+            border-radius: 8px;
+        }
+
+        &__title {
+            margin-top: 12px;
+            margin-bottom: 10px;
+            line-height: 24px;
+        }
+
+        &__text {
+            color: $text-color;
+            font-size: 14px;  
+            line-height: 22px; 
+        }
+
+        &__date {
+            color: $text-color;
+            font-size: 12px;
+            line-height: 22px; 
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+
+        &__link {
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: underline;
+            color: $link-color;
+            transition: background-color 300ms ease;
+
+            &:hover {
+                background-color: #5e5e63;
+                color: $white-color;
+            }
+        }
+    }   
+}
+
+.newest-blog {
+    padding: 0;
+
+    label {
+        color: #0064d2;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 12px;
+        display: block;
+    }
+
+    .thumbnail {
+        &__title {
+            margin-top: 4px;
+            font-size: 40px;
+            line-height: 48px;
+        }
+
+        &__text {
+            font-size: 16px;  
+            line-height: 26px; 
+        }
+
+        &__date {
+            font-size: 14px;
+            line-height: 24px;
         }
     }
 }

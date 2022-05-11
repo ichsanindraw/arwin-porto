@@ -8,7 +8,7 @@ import Container from "./layout/container"
             <nav>
                 {isBackButton ? <Link className="backHome" to="/">← Back to Homepage</Link> : null}
                 <div className="main-navigation">
-                    <Link to="/page-2/">Blog</Link>
+                    <Link to="/blog/">Blog</Link>
                     <Link to="/about/">About</Link>
                 </div>
             </nav>

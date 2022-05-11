@@ -4,7 +4,6 @@ import { StaticImage } from "gatsby-plugin-image"
 import Seo from "../../components/seo"
 import Navigation from "../../components/navigation"
 import Container from "../../components/layout/container"
-import BackToHome from "../../components/backToHome"
 import Socmed from "../../components/socmed"
 
 const About = () => {
