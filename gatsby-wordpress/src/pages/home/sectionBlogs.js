@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Container from  "../../components/layout/container"
 
-const Blog = ({ data }) => {
+const SectionBlogs = ({ data }) => {
     console.log(data);
     console.log(JSON.stringify(data, null, 4));
 
@@ -71,7 +71,7 @@ const Blog = ({ data }) => {
     )
 }
 
-export default Blog
+export default SectionBlogs
 
 export const query = graphql`
   {

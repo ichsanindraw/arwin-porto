@@ -4,9 +4,9 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Personal from "./home/personal"
-import Blog from "./home/blog"
-import Work from "./home/work"
+import SectionPersonal from "./home/sectionPersonal"
+import SectionBlogs from "./home/sectionBlogs"
+import SectionWorks from "./home/sectionWorks"
 import Footer from "../components/footer"
 
 const Home = ({ data }) => {
@@ -15,9 +15,9 @@ const Home = ({ data }) => {
   return (
     <Layout>
       <Seo title="home" />
-      <Personal />
-      <Blog />
-      <Work />
+      <SectionPersonal />
+      <SectionBlogs />
+      <SectionWorks />
       <Footer />
       <h1>My WordPress Blog</h1>
       <h4>Posts</h4>

@@ -3,7 +3,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Container from  "../../components/layout/container"
 import Link from "../../components/link"
 
-const Personal = () => {
+const SectionPersonal = () => {
     return (
         <section id="section-personal">
           <StaticImage
@@ -47,4 +47,4 @@ const Personal = () => {
     )
 }
 
-export default Personal
+export default SectionPersonal
