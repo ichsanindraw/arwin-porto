@@ -27,6 +27,7 @@ exports.createPages = ({ graphql, actions }) => {
     // console.log(JSON.stringify(result, null, 4))
     // process.exit()
     //highlight-start
+    console.log(result);
     result.data.allWpPost.nodes.forEach((node) => {
       createPage({
         path: node.slug,

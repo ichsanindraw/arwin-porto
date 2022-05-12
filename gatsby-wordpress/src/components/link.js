@@ -11,6 +11,8 @@ const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
   // will start with exactly one slash, and that anything else is external.
   const internal = /^\/(?!\/)/.test(to)
 
+  console.log(`${to}, ${internal}`)
+
   // Use Gatsby Link for internal links, and <a> for others
   if (internal) {
     return (
@@ -33,46 +35,3 @@ const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
 }
 
 export default Link
-
-// for handling external link
-// const Link = (
-//     {
-//         to,
-//         color,
-//         underline,
-//         bold,
-//         children
-//     }) => {
-
-//     let className = "test"
-
-//     if (bold) {
-//         className += " bold"
-//     }
-
-//     if (underline) {
-//         className += " underline"
-//     }
-
-//     return (
-//         <a
-//             className={className}
-//             href={to}
-//             style={{color}}
-//             target="_blank"
-//             rel="noreferrer"
-//         >
-//             {children}
-//         </a>
-//     )
-// }
-
-// Link.propsType = {
-//     to: PropTypes.string,
-//     color: PropTypes.string,
-//     underline: PropTypes.bool,
-//     bold: PropTypes.bool,
-//     children: PropTypes.node.isRequired
-// }
-
-// export default Link

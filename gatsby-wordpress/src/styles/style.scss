@@ -194,6 +194,16 @@ footer {
                     flex-basis: 35%;
                     padding-right: 140px;
                 }
+
+                &:last-child {
+                    div {
+                        &:last-child {
+                            p {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -357,10 +367,15 @@ footer {
 
 .blog-thumbnail {
     padding: 0 15px;
+    flex: 1 1 0px;
 
     .thumbnail {
         &__image {
             border-radius: 8px;
+            width: 100%;
+            &--mini {
+                max-height: 150px;
+            }
         }
 
         &__title {
@@ -402,7 +417,7 @@ footer {
 .newest-blog {
     padding: 0;
 
-    label {
+    span {
         color: #0064d2;
         font-size: 14px;
         font-weight: 600;
