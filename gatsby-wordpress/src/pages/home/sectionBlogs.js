@@ -52,7 +52,7 @@ const SectionBlogs = ({ data }) => {
               )} ${newDate.getFullYear()}`
               return (
                 <div key={index}>
-                  <Link to={node.slug} className="section-blog__blog-title">
+                  <Link to={`blog/${node.slug}`} className="section-blog__blog-title">
                     {node.title}
                   </Link>
                   <p className="section-blog__blog-date">{formatedDate}</p>

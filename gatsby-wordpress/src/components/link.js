@@ -11,8 +11,6 @@ const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
   // will start with exactly one slash, and that anything else is external.
   const internal = /^\/(?!\/)/.test(to)
 
-  console.log(`${to}, ${internal}`)
-
   // Use Gatsby Link for internal links, and <a> for others
   if (internal) {
     return (

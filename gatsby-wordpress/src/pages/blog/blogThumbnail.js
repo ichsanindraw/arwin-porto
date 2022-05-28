@@ -7,7 +7,7 @@ const BlogThumbnail = ({ image, title, text, date, link }) => {
 
   return (
     <div className="blog-thumbnail">
-      {dataImage != undefined ? (
+      {dataImage !== undefined ? (
         <GatsbyImage
           className="thumbnail__image thumbnail__image--mini"
           image={dataImage}
@@ -28,7 +28,7 @@ const BlogThumbnail = ({ image, title, text, date, link }) => {
         dangerouslySetInnerHTML={{ __html: text }}
       />
       <div className="thumbnail__date">{date}</div>
-      <Link to={link} className="thumbnail__link">
+      <Link to={`blog/${link}`} className="thumbnail__link">
         Read Article
       </Link>
     </div>
